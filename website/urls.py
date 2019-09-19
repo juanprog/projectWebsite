@@ -1,6 +1,6 @@
 from django.urls import path
-from . import IndexTemplateView, FuncionarioListView, FuncionarioUpdateView,\
-    FuncionarioDeleteView, FuncionarioCreateView
+from website.views import IndexTemplateView, FuncionarioListView,\
+    FuncionarioUpdateView, FuncionarioDeleteView, FuncionarioCreateView
 
 
 app_name = 'website'
@@ -8,7 +8,7 @@ app_name = 'website'
 # urlpatterns contains the URL routing list
 urlpatterns = [
     # GET /
-    path('', IndexTemplateView(), name='index'),
+    path('', IndexTemplateView.as_view(), name='index'),
 
     # GET /funcionarios
     path('funcionarios/', FuncionarioListView.as_view(),
