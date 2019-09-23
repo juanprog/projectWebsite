@@ -13,15 +13,15 @@ class FiltraIPMiddleware:
 
     def process_view(self, request, view_func, view_args, view_kwargs):
         # Authorized IP list
-        ips_autorizados = ['127.0.0.1']
+        ips_autorizados = ["127.0.0.1"]
 
         # User IP
-        ip_usuario = request.META.get('REMOTE_ADDR')
+        ip_usuario = request.META.get("REMOTE_ADDR")
 
         # Checks if it is an authorized IP
         if ip_usuario not in ips_autorizados:
             # If the user is not authorized > HTTP 403 (Unauthorized)
-            return HttpResponseForbidden('IP não autorizado')
+            return HttpResponseForbidden("IP não autorizado")
 
         # If it's an authorized IP, we don't do anything
         return None

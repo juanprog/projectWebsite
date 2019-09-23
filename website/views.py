@@ -9,40 +9,40 @@ from website.forms import InsereFuncionarioForm
 class IndexTemplateView(TemplateView):
     """ Main page"""
 
-    template_name = 'website/index.html'
+    template_name = "website/index.html"
 
 
 class FuncionarioListView(ListView):
     """ Funcionario List"""
 
-    template_name = 'website/lista.html'
+    template_name = "website/lista.html"
     model = Funcionario
-    context_object_name = 'funcionarios'
+    context_object_name = "funcionarios"
 
 
 class FuncionarioUpdateView(UpdateView):
     """ Funcionario Update"""
 
-    template_name = 'website/atualiza.html'
+    template_name = "website/atualiza.html"
     model = Funcionario
-    fields = '__all__'
-    context_object_name = 'funcionario'
-    success_url = reverse_lazy('website:lista_funcionarios')
+    fields = "__all__"
+    context_object_name = "funcionario"
+    success_url = reverse_lazy("website:lista_funcionarios")
 
 
 class FuncionarioDeleteView(DeleteView):
     """ Funcionario Delete"""
 
-    template_name = 'website/exclui.html'
+    template_name = "website/exclui.html"
     model = Funcionario
-    context_object_name = 'funcionario'
-    success_url = reverse_lazy('website:lista_funcionarios')
+    context_object_name = "funcionario"
+    success_url = reverse_lazy("website:lista_funcionarios")
 
 
 class FuncionarioCreateView(CreateView):
     """ Funcionario Registration"""
 
-    template_name = 'website/cria.html'
+    template_name = "website/cria.html"
     model = Funcionario
     form_class = InsereFuncionarioForm
-    success_url = reverse_lazy('website:lista_funcionarios')
+    success_url = reverse_lazy("website:lista_funcionarios")
