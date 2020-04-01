@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
+
 
 urlpatterns = [
+    # Includes website URLs
+    path('', include('website.urls', namespace='website')),
+
+    # Administrative interface
     path('admin/', admin.site.urls),
 ]
